@@ -1,6 +1,8 @@
+import HomeFilmes from "./components/HomeFilmes/HomeFilmes"
+
 function App() {
   return (
-    <h1>App Filmes</h1>
+    <HomeFilmes/>
   )
 }
 
