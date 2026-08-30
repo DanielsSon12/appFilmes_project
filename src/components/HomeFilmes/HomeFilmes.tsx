@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react'
 import { HashLoader } from 'react-spinners'
 
 import useDataFetchingFilmes from '../../service/DataFetchingFilmes'
+import BannerFilmes from '../BannerFilmes/BannerFilmes'
 import CardFilme from '../CardFilme/CardFilme'
 
 const HomeFilmes = () => {
@@ -14,7 +15,7 @@ const HomeFilmes = () => {
 		if (!loading) {
 			const timer = setTimeout(() => {
 				setShowLoading(false)
-			}, 1200)
+			}, 1500)
 
 			return () => clearTimeout(timer)
 		}
@@ -46,9 +47,21 @@ const HomeFilmes = () => {
 
 	return (
 		<main className="relative min-h-screen bg-slate-950">
-			<h1 className="m-auto text-center text-4xl text-white">App de Filmes</h1>
+			<div className="fixed right-8 z-50 translate-y-1/2 opacity-30 max-md:right-4">
+				<a href="https://github.com/DanielsSon12/appFilmes_project" className="github-icon">
+					<motion.img
+						src="https://skillicons.dev/icons?i=github"
+						alt="github"
+						className="w-10 max-md:w-8"
+						whileHover={{ scale: 1.2, rotate: 5 }}
+					/>
+				</a>
+			</div>
+			<section className="w-full">
+				<BannerFilmes images={filmes} />
+			</section>
 
-			<section className="m-auto">
+			<section className="relative m-auto">
 				<CardFilme filmes={filmes} />
 			</section>
 		</main>

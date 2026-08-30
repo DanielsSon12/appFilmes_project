@@ -14,7 +14,7 @@ const CardFilme = ({ filmes }: CardFilmeProps) => {
 			initial={{ y: 230, opacity: 0 }}
 			animate={{ y: 0, opacity: 1 }}
 			transition={{ duration: 1 }}
-			className="m-auto grid max-w-6xl grid-cols-1 items-center gap-5 pt-10 pb-10 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5"
+			className="m-auto grid max-w-6xl grid-cols-1 items-center gap-5 pt-30 pb-10 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5"
 		>
 			{filmes.map((filme) => (
 				<motion.div
