@@ -9,7 +9,12 @@ const CardFilme = ({ filmes }: CardFilmeProps) => {
 		<div>
 			{filmes.map((filme) => (
 				<div key={filme.id}>
-					<img src={`https://image.tmdb.org/t/p/original/${filme.poster_path}`} alt={filme.title} />
+					<div>
+						<img
+							src={`https://image.tmdb.org/t/p/original/${filme.poster_path}`}
+							alt={filme.title}
+						/>
+					</div>
 
 					<h1>
 						{filme.title} - <span>{filme.vote_average}</span>
