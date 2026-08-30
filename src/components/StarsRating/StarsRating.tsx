@@ -19,12 +19,12 @@ const StarsRating = (props: Star) => {
 	}
 
 	return (
-		<div>
+		<div className="flex flex-row gap-1">
 			{fullStars.map((index) => (
-				<FaStar key={index} />
+				<FaStar key={index} className="text-amber-400" />
 			))}
 			{emptyStars.map((index) => (
-				<FaRegStar key={index} />
+				<FaRegStar key={index} className="text-amber-400" />
 			))}
 		</div>
 	)
