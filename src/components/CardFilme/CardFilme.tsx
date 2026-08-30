@@ -1,5 +1,7 @@
 import type { Filme } from '@/types/filme'
 
+import StarsRating from '../StarsRating/StarsRating'
+
 interface CardFilmeProps {
 	filmes: Filme[]
 }
@@ -16,11 +18,14 @@ const CardFilme = ({ filmes }: CardFilmeProps) => {
 						/>
 					</div>
 
-					<h1>
-						{filme.title} - <span>{filme.vote_average}</span>
-					</h1>
+					<div>
+						<h1 className="text-white">{filme.title}</h1>
+						<StarsRating rating={filme.vote_average} />
 
-					<p>{filme.overview}</p>
+						<div>
+							<p className="text-amber-100">{filme.overview}</p>
+						</div>
+					</div>
 				</div>
 			))}
 		</div>
