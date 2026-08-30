@@ -1,21 +1,25 @@
-import DataFetchingFilmes from "../../service/DataFetchingFilmes"
+import type { Filme } from '@/types/filme'
 
-const CardFilme = () => {
-    const {filmes} = DataFetchingFilmes()
+interface CardFilmeProps {
+	filmes: Filme[]
+}
 
-    return(
-        <>
-        {filmes.map((filme) => {
-           return (
-            <div key={filme.id}>
-                <img src={filme.poster_path} alt={filme.title}/>
-                <h1>{filme.title} - <span>{filme.vote_average}</span></h1>
-                <p>{filme.overview}</p>
-            </div>
-           )                                                                                               
-        })}
-        </>
-    )
+const CardFilme = ({ filmes }: CardFilmeProps) => {
+	return (
+		<div>
+			{filmes.map((filme) => (
+				<div key={filme.id}>
+					<img src={`https://image.tmdb.org/t/p/original/${filme.poster_path}`} alt={filme.title} />
+
+					<h1>
+						{filme.title} - <span>{filme.vote_average}</span>
+					</h1>
+
+					<p>{filme.overview}</p>
+				</div>
+			))}
+		</div>
+	)
 }
 
 export default CardFilme
