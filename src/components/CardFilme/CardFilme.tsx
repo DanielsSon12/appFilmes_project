@@ -11,9 +11,9 @@ interface CardFilmeProps {
 const CardFilme = ({ filmes }: CardFilmeProps) => {
 	return (
 		<motion.div
-			initial={{ y: 120, opacity: 0 }}
+			initial={{ y: 230, opacity: 0 }}
 			animate={{ y: 0, opacity: 1 }}
-			transition={{ duration: 1, ease: 'easeInOut' }}
+			transition={{ duration: 1 }}
 			className="m-auto grid max-w-6xl grid-cols-1 items-center gap-5 pt-10 pb-10 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5"
 		>
 			{filmes.map((filme) => (
@@ -29,6 +29,7 @@ const CardFilme = ({ filmes }: CardFilmeProps) => {
 							scale: 1.05,
 						},
 					}}
+					transition={{ duration: 0.3 }}
 					className="relative aspect-2/3 h-full w-full overflow-hidden rounded-md"
 				>
 					<motion.img
@@ -40,7 +41,7 @@ const CardFilme = ({ filmes }: CardFilmeProps) => {
 								scale: 1.1,
 							},
 						}}
-						transition={{ duration: 0.3 }}
+						transition={{ duration: 1 }}
 						src={`https://image.tmdb.org/t/p/original/${filme.poster_path}`}
 						alt={filme.title}
 						className="h-full w-full rounded-md object-cover"

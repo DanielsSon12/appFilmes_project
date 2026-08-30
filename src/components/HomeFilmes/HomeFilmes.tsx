@@ -1,4 +1,6 @@
+import { motion } from 'motion/react'
 import { useEffect, useState } from 'react'
+import { HashLoader } from 'react-spinners'
 
 import useDataFetchingFilmes from '../../service/DataFetchingFilmes'
 import CardFilme from '../CardFilme/CardFilme'
@@ -9,20 +11,26 @@ const HomeFilmes = () => {
 	const [showLoading, setShowLoading] = useState(true)
 
 	useEffect(() => {
-		const timer = setTimeout(() => {
-			setShowLoading(false)
-		}, 1000)
+		if (!loading) {
+			const timer = setTimeout(() => {
+				setShowLoading(false)
+			}, 1200)
 
-		return () => clearTimeout(timer)
-	}, [])
+			return () => clearTimeout(timer)
+		}
+	}, [loading])
 
 	if (loading || showLoading) {
 		return (
-			<main className="m-auto flex min-h-screen items-center justify-center bg-slate-950 text-center text-7xl text-white">
-				<div>
-					<h1>Loading...</h1>
-				</div>
-			</main>
+			<motion.main className="m-auto flex min-h-screen items-center justify-center bg-slate-950 text-center text-7xl text-white">
+				<motion.div
+					initial={{ opacity: 1 }}
+					animate={{ opacity: 0 }}
+					transition={{ duration: 1.3, ease: 'easeInOut' }}
+				>
+					<HashLoader color="#c8cadf" size={100} />
+				</motion.div>
+			</motion.main>
 		)
 	}
 
@@ -37,7 +45,7 @@ const HomeFilmes = () => {
 	}
 
 	return (
-		<main className="min-h-screen bg-slate-950">
+		<main className="relative min-h-screen bg-slate-950">
 			<h1 className="m-auto text-center text-4xl text-white">App de Filmes</h1>
 
 			<section className="m-auto">
