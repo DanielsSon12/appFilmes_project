@@ -57,8 +57,25 @@ const HomeFilmes = () => {
 					/>
 				</a>
 			</div>
-			<section className="w-full">
+			<section className="relative w-full">
 				<BannerFilmes images={filmes} />
+
+				<svg
+					className="pointer-events-none absolute bottom-0 left-0 z-10 h-45 w-full"
+					viewBox="0 0 1440 180"
+					preserveAspectRatio="none"
+					xmlns="http://www.w3.org/2000/svg"
+				>
+					<defs>
+						<linearGradient id="gradient" x1="0" y1="0" x2="0" y2="1">
+							<stop offset="0%" stopColor="#020617" stopOpacity="0" />
+
+							<stop offset="100%" stopColor="#020617" stopOpacity="1" />
+						</linearGradient>
+					</defs>
+
+					<rect width="100%" height="100%" fill="url(#gradient)" />
+				</svg>
 			</section>
 
 			<section className="relative m-auto">

@@ -12,9 +12,10 @@ const CardFilme = ({ filmes }: CardFilmeProps) => {
 	return (
 		<motion.div
 			initial={{ y: 230, opacity: 0 }}
-			animate={{ y: 0, opacity: 1 }}
+			whileInView={{ y: 0, opacity: 1 }}
+			viewport={{ once: true, amount: 0.1 }}
 			transition={{ duration: 1 }}
-			className="m-auto grid max-w-6xl grid-cols-1 items-center gap-5 pt-30 pb-10 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5"
+			className="m-auto grid w-full max-w-6xl grid-cols-2 gap-3 px-4 pt-30 pb-10 sm:grid-cols-3 sm:gap-4 sm:px-6 sm:pt-40 md:grid-cols-4 md:gap-5 md:px-8 md:pt-45 lg:grid-cols-5 lg:px-4 lg:pt-50"
 		>
 			{filmes.map((filme) => (
 				<motion.div
@@ -30,7 +31,7 @@ const CardFilme = ({ filmes }: CardFilmeProps) => {
 						},
 					}}
 					transition={{ duration: 0.3 }}
-					className="relative aspect-2/3 h-full w-full overflow-hidden rounded-md"
+					className="relative aspect-2/3 w-full overflow-hidden rounded-md"
 				>
 					<motion.img
 						variants={{
@@ -44,15 +45,18 @@ const CardFilme = ({ filmes }: CardFilmeProps) => {
 						transition={{ duration: 1 }}
 						src={`https://image.tmdb.org/t/p/original/${filme.poster_path}`}
 						alt={filme.title}
-						className="h-full w-full rounded-md object-cover"
+						className="h-full w-full object-cover"
 					/>
 
 					<div className="pointer-events-none absolute inset-0 bg-linear-to-t from-black/90 via-black/40 to-transparent" />
 
-					<div className="absolute inset-0 flex flex-col justify-end p-3">
-						<h1 className="text-lg text-white">{filme.title}</h1>
+					<div className="absolute inset-0 flex flex-col justify-end p-2 sm:p-3">
+						<h1 className="line-clamp-2 text-sm font-medium text-white sm:text-base md:text-lg">
+							{filme.title}
+						</h1>
 
 						<StarsRating rating={filme.vote_average} />
+
 						<motion.div
 							variants={{
 								start: {
@@ -65,9 +69,11 @@ const CardFilme = ({ filmes }: CardFilmeProps) => {
 								},
 							}}
 							transition={{ duration: 0.3 }}
-							className="overflow-hidden"
+							className="hidden overflow-hidden md:block"
 						>
-							<p className="mt-2 line-clamp-3 text-sm text-amber-100">{filme.overview}</p>
+							<p className="mt-2 mb-2 line-clamp-3 text-xs text-amber-50 lg:text-sm">
+								{filme.overview}
+							</p>
 						</motion.div>
 					</div>
 				</motion.div>

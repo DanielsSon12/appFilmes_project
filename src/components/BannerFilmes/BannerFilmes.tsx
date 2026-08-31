@@ -21,7 +21,7 @@ const BannerFilmes = ({ images }: ImageFilmeProps) => {
 				initial={{ opacity: 0 }}
 				animate={{ opacity: 1 }}
 				transition={{ duration: 1.3, ease: 'easeInOut' }}
-				style={{ height: 750, width: 'auto' }}
+				className="h-125 w-full sm:h-150 md:h-170 lg:h-192"
 			>
 				<DriftWall
 					items={driftWallImages}
@@ -47,14 +47,31 @@ const BannerFilmes = ({ images }: ImageFilmeProps) => {
 					grayscale={true}
 				/>
 			</motion.div>
-			<div className="pointer-events-none absolute inset-0 flex items-center justify-center text-white">
-				<h1 className="text-7xl font-extrabold tracking-wider">
-					CATALOGO DE{' '}
-					<span className="text-blue-800">
-						<br />
-						FILMES
-					</span>
-				</h1>
+
+			<div className="pointer-events-none absolute inset-0 flex items-center justify-center px-4 text-white">
+				<motion.h1
+					initial={{
+						opacity: 0,
+						filter: 'blur(10px)',
+					}}
+					whileInView={{
+						opacity: 1,
+						filter: 'blur(0px)',
+					}}
+					viewport={{
+						once: true,
+						amount: 0.7,
+					}}
+					transition={{
+						duration: 1,
+						ease: 'easeOut',
+					}}
+					className="text-4xl leading-tight font-extrabold tracking-wide sm:text-5xl sm:tracking-wider md:text-6xl lg:text-8xl"
+				>
+					CATALOGO DE
+					<br />
+					<span className="text-blue-800">FILMES</span>
+				</motion.h1>
 			</div>
 		</div>
 	)
