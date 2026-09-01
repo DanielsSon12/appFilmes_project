@@ -15,13 +15,14 @@ const CardFilme = ({ filmes }: CardFilmeProps) => {
 			whileInView={{ y: 0, opacity: 1 }}
 			viewport={{ once: true, amount: 0.1 }}
 			transition={{ duration: 1 }}
-			className="m-auto grid w-full max-w-6xl grid-cols-2 gap-3 px-4 pt-30 pb-10 sm:grid-cols-3 sm:gap-4 sm:px-6 sm:pt-40 md:grid-cols-4 md:gap-5 md:px-8 md:pt-45 lg:grid-cols-5 lg:px-4 lg:pt-50"
+			className="m-auto grid w-full max-w-6xl grid-cols-2 gap-3 px-4 pt-30 pb-10 sm:grid-cols-2 sm:gap-4 sm:px-6 sm:pt-40 md:grid-cols-3 md:gap-5 md:px-8 md:pt-45 lg:grid-cols-4 lg:px-4 lg:pt-50"
 		>
 			{filmes.map((filme) => (
 				<motion.div
 					key={filme.id}
 					initial="start"
 					whileHover="final"
+					whileTap={{ scale: 1.05, rotate: -2 }}
 					variants={{
 						start: {
 							scale: 1,
