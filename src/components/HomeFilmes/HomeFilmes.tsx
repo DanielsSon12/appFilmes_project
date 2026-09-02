@@ -2,14 +2,18 @@ import { motion } from 'motion/react'
 import { useEffect, useState } from 'react'
 import { HashLoader } from 'react-spinners'
 
+import type { Filme } from '@/types/filme'
+
 import useDataFetchingFilmes from '../../service/DataFetchingFilmes'
 import BannerFilmes from '../BannerFilmes/BannerFilmes'
 import CardFilme from '../CardFilme/CardFilme'
+import ModalFilme from '../ModalFilme/ModalFilme'
 
 const HomeFilmes = () => {
 	const { filmes, loading, error } = useDataFetchingFilmes()
 
 	const [showLoading, setShowLoading] = useState(true)
+	const [selectFilme, setSelectFilme] = useState<Filme | null>(null)
 
 	useEffect(() => {
 		if (!loading) {
@@ -23,7 +27,7 @@ const HomeFilmes = () => {
 
 	if (loading || showLoading) {
 		return (
-			<motion.main className="m-auto flex min-h-screen items-center justify-center bg-slate-950 text-center text-7xl text-white">
+			<main className="m-auto flex min-h-screen items-center justify-center bg-slate-950 text-center text-7xl text-white">
 				<motion.div
 					initial={{ opacity: 1 }}
 					animate={{ opacity: 0 }}
@@ -31,7 +35,7 @@ const HomeFilmes = () => {
 				>
 					<HashLoader color="#c8cadf" size={100} />
 				</motion.div>
-			</motion.main>
+			</main>
 		)
 	}
 
@@ -79,8 +83,20 @@ const HomeFilmes = () => {
 			</section>
 
 			<section className="relative m-auto">
-				<CardFilme filmes={filmes} />
+				<motion.div
+					initial={{ y: 230, opacity: 0 }}
+					whileInView={{ y: 0, opacity: 1 }}
+					viewport={{ once: true, amount: 0.1 }}
+					transition={{ duration: 1 }}
+					className="m-auto grid w-full max-w-6xl grid-cols-2 gap-3 px-4 pt-30 pb-10 sm:grid-cols-2 sm:gap-4 sm:px-6 sm:pt-40 md:grid-cols-3 md:gap-5 md:px-8 md:pt-45 lg:grid-cols-4 lg:px-4 lg:pt-50"
+				>
+					{filmes.map((filme) => (
+						<CardFilme key={filme.id} filme={filme} onClick={() => setSelectFilme(filme)} />
+					))}
+				</motion.div>
 			</section>
+
+			<ModalFilme filme={selectFilme} fechar={() => setSelectFilme(null)} />
 		</main>
 	)
 }
