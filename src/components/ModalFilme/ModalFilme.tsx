@@ -75,13 +75,12 @@ const ModalFilme = ({ filme, fechar }: ModalFilmeProps) => {
 							type="button"
 							onClick={fechar}
 							whileHover={{
-								scale: 1.1,
-								rotate: 90,
+								scale: 1.3,
 							}}
 							whileTap={{
 								scale: 0.85,
 							}}
-							className="absolute top-4 right-4 z-20 flex h-10 w-10 cursor-pointer items-center justify-center rounded-full bg-black/70 text-2xl text-white backdrop-blur-sm transition-colors hover:bg-black"
+							className="absolute top-4 right-4 z-20 flex h-10 w-10 cursor-pointer items-center justify-center rounded-full text-2xl text-white backdrop-blur-sm transition-colors hover:text-red-700"
 							aria-label="Fechar modal"
 						>
 							×

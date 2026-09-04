@@ -68,7 +68,7 @@ const BannerFilmes = ({ images }: ImageFilmeProps) => {
 					}}
 					className="text-4xl leading-tight font-extrabold tracking-wide sm:text-5xl sm:tracking-wider md:text-6xl lg:text-8xl"
 				>
-					CATALOGO DE
+					CATÁLOGO DE
 					<br />
 					<span className="text-blue-800">FILMES</span>
 				</motion.h1>

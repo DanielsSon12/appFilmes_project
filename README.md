@@ -1,6 +1,6 @@
 # 🎬 App de Filmes
 
-Projeto de um Catalogo de filmes no lançamento, utilizando React, TypeScript, Vite, Tailwind CSS e bibliotecas de animação como [Motion](https://motion.dev/) e [React Bits](https://reactbits.dev/). Para obter as informações do catalogo, foi utilizado a API [TMDB](https://www.themoviedb.org).
+Projeto de um Catálogo de filmes no lançamento, utilizando React, TypeScript, Vite, Tailwind CSS e bibliotecas de animação como [Motion](https://motion.dev/) e [React Bits](https://reactbits.dev/). Para obter as informações do catálogo, foi utilizado a API [TMDB](https://www.themoviedb.org).
 
 ## 💻 Tecnologias
 
